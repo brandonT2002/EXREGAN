@@ -1,0 +1,43 @@
+/* 1. Package e importaciones */
+package Language;
+import java_cup.runtime.*;
+import Components.ErrorS;
+
+/* 2. Codigo para el parser, variables y metodos */
+
+parser code 
+{:
+    public Scanner s;
+    int index;
+    public Parser(Scanner s) {
+        super(s);
+        this.s = s;
+    }
+:} 
+
+/* 3. Terminales*/
+
+terminal String RW_CONJ, TK_id, TK_str, TK_char, TK_charnum;
+terminal String TK_lbr, TK_rbr;
+terminal String TK_semicolon, TK_colon, TK_comma, TK_prompt, TK_tilde;
+terminal String TK_or, TK_positive, TK_kleene, TK_concat, TK_optional;
+terminal String TK_limit, TK_singlequ, TK_doublequ, TK_newline;
+
+/* 4. No Terminales*/
+non terminal INI, BODY, DECLARATIONS, EVALUATIONS;
+non terminal INSTRUCTIONS, INSTRUCTION;
+non terminal SET, ELEMENTS;
+non terminal SPECIFIC, REGEX;
+non terminal OPERATIONS, OPERATION;
+non terminal OPERAND;
+non terminal ANALYSIS, EXPRESSION;
+non terminal String CHARACTER;
+non terminal String IDS;
+
+/* 5. Precedencias */
+
+/* 6. Gramatica Libre de Contexto */
+
+start with INI;
+
+INI ::= TK_lbr TK_rbr;
